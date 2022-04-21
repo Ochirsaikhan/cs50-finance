@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-stripped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Number of Shares</th>
+                    <th>Transaction Type</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Profit/Loss</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in transaction %}
+                <tr class="bg-light">
+                    <td>{{stock.SYMBOL}}</td>
+                    <td>{{stock.company}}</td>
+                    <td>{{stock.shares}}</td>
+                    <td>{{stock.type}}</td>
+                    <td>{{stock.price | usd}}</td>
+                    <td>{{stock.date}}</td>
+                    {% if stock['profit/loss'] > 0 %}
+                        <td class="text-success">{{stock['profit/loss']}}</td>
+                    {% else %}
+                        <td class="text-danger">{{stock['profit/loss']}}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <table class="table table-stripped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Number of Shares</th>
+                    <th>Current Price</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in portfolio %}
+                <tr class="bg-light">
+                    <td>{{stock.symbol}}</td>
+                    <td>{{stock.company}}</td>
+                    <td>{{stock.shares}}</td>
+                    <td>{{prices[stock.symbol] | usd}}</td>
+                    <td>{{(stock.shares * prices[stock.symbol]) | usd}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="clearfix">
+            <p class="float-right text-monospace h5">Cash: {{cash | usd}}</p>
+            <p class="float-right text-success h5">Total Balance: {{balance | usd}}</p>
+        </div>
+    </div>
+{% endblock %}
