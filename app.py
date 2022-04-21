@@ -152,7 +152,7 @@ def buy():
                        date.strftime('%c'))
 
             # Add to the transaction history
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit-loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_data["name"],
                        stock_data["symbol"],
@@ -375,7 +375,7 @@ def sell():
         if symbol_shares_user_own > how_many_shares:
 
             # Make transaction
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit-loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_to_sell[0]['company'],
                        stock_to_sell[0]['symbol'],
@@ -398,7 +398,7 @@ def sell():
         elif symbol_shares_user_own == how_many_shares:
 
             # Make transaction
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit-loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_to_sell[0]['company'],
                        stock_to_sell[0]['symbol'],
