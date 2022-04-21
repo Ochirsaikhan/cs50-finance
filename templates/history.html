@@ -27,10 +27,10 @@
                     <td>{{stock.type}}</td>
                     <td>{{stock.price | usd}}</td>
                     <td>{{stock.date}}</td>
-                    {% if stock[profit] > 0 %}
-                        <td class="text-success">{{stock[profit]}}</td>
+                    {% if stock["profit"] > 0 %}
+                        <td class="text-success">{{stock["profit"]}}</td>
                     {% else %}
-                        <td class="text-danger">{{stock[profit]}}</td>
+                        <td class="text-danger">{{stock["profit"]}}</td>
                     {% endif %}
                 </tr>
                 {% endfor %}
