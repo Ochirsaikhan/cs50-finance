@@ -24,11 +24,11 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-# db = SQL("sqlite:///finance.db")
-uri = os.getenv("DATABASE_URL")
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://")
-db = SQL(uri)
+db = SQL("sqlite:///finance.db")
+# uri = os.getenv("DATABASE_URL")
+# if uri.startswith("postgres://"):
+#     uri = uri.replace("postgres://", "postgresql://")
+# db = SQL(uri)
 
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
@@ -152,7 +152,7 @@ def buy():
                        date.strftime('%c'))
 
             # Add to the transaction history
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, profit) VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_data["name"],
                        stock_data["symbol"],
@@ -375,7 +375,7 @@ def sell():
         if symbol_shares_user_own > how_many_shares:
 
             # Make transaction
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, profit) VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_to_sell[0]['company'],
                        stock_to_sell[0]['symbol'],
@@ -398,7 +398,7 @@ def sell():
         elif symbol_shares_user_own == how_many_shares:
 
             # Make transaction
-            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, profit) VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
+            db.execute("INSERT INTO transactions (user_id, company, SYMBOL, shares, type, price, date, 'profit/loss') VALUES(?, ?, ?, ?, ?, ?, ? ,?)",
                        session['user_id'],
                        stock_to_sell[0]['company'],
                        stock_to_sell[0]['symbol'],
