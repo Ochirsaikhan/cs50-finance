@@ -54,7 +54,7 @@ Visit the URL outputted by Flask and register your username and password to star
 
 ## Demo
 
-You can visit this website https://davaajambal-cs50-finance.herokuapp.com to use this project online.
+You can visit this website https://davaajambal-cs50-finance.herokuapp.com to use the web application online.
 
 ![Project demo](/Demo.gif)
 
@@ -64,4 +64,4 @@ By finishing this project, I learned a lot about the general structure of Flask 
 
 As part of implementing my personal touches to this project, I created a feature in the history section that allows you to see your profit and loss by calculating the difference between the price you bought and the price you sold the stock. Also, if you made a profit, the text will appear in green; otherwise, it will appear in red. Finally, I made it possible to sell the same stock you bought at different prices with the correct profit and loss calculation.
 
-In addition to finishing this project locally, I deployed this project to [Heroku](http://heroku.com/), a cloud platform as a service (PaaS) that lets companies build, deliver, monitor, and scale apps. I read Heroku's documentation and successfully integrated my web application with it, although there were a few hurdles. Heroku used [PostgreSQL](https://www.postgresql.org) instead of [SQLite](https://www.sqlite.org), causing some integration issues. However, I resolved the issue by reading the documentation and doing a bit of google-fu. Overall, I enjoyed working on this project a lot because it combined two of my interests—the stock market and web technologies.
+In addition to finishing this project locally, I deployed this project to [Heroku](http://heroku.com/), a cloud platform as a service (PaaS) that lets companies build, deliver, monitor, and scale apps, to make it possible for users to use it online. I read Heroku's documentation and successfully integrated my web application with it, although there were a few hurdles. Heroku used [PostgreSQL](https://www.postgresql.org) instead of [SQLite](https://www.sqlite.org), causing some integration issues. However, I resolved the problem by reading the documentation and doing a bit of google-fu. Overall, I enjoyed working on this project a lot because it combined two of my interests—the stock market and web technologies.
